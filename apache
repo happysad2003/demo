@@ -1,0 +1,8 @@
+docker pull httpd
+docker run -d -p 8080:80 --name my-apache2-server httpd
+touch index.html
+nano index.html
+docker cp index.html my-apache2-server:/usr/local/apache2/htdocs
+docker stop my-apache2-server
+docker rm my-apache2-server
+

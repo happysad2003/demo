@@ -1,0 +1,7 @@
+docker pull nginx
+docker run -d -p 8080:80 --name my-nginx-server nginx
+nano index.html
+docker cp index.html my-nginx-server:/usr/share/nginx/html/
+docker stop my-nginx-server
+docker rm my-nginx-server 
+

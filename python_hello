@@ -1,0 +1,10 @@
+nano rohan.py
+nano Dockerfile
+		FROM   python:3.11-slim
+		WORKDIR   /app
+		COPY    rohan.py    .
+		CMD ["python", "rohan.py"]
+
+docker build -t rohan-python .
+docker run rohan-python
+
