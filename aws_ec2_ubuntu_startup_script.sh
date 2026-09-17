@@ -1,3 +1,6 @@
+port 80  anywhere 
+port 443  anywhere
+
 #!/bin/bash
 
 # Update package list
