@@ -1,0 +1,23 @@
+nano app.py
+            from flask import Flask
+            app = Flask(__name__)
+            @app.route("/")
+            def hello():
+                return "Hello world from Flask in docker"
+            if __name__ == "__main__":
+                app.run(host="0.0.0.0", port=5000)
+
+mkdir Dockerfile
+            FROM python:3.11-slim
+            WORKDIR /app
+            COPY app.py .
+            RUN pip install flask
+            EXPOSE 5000
+            CMD ["python","app.py"]
+
+docker build -t flask-hello .
+docker run -p 5000:5000 flask-hello
+docker tag flask-hello rohanbhande25/flask-hello:1.0
+docker push rohanbhande25/flask-hello:1.0
+docker run rohanbhande25/flask-hello:1.0
+
