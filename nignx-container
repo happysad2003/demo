@@ -1,0 +1,13 @@
+nano index.html
+	Digital Library Service is running successfully!
+
+nano Dockerfile
+	FROM nginx:latest
+	COPY index.html /usr/share/nginx/html/
+	EXPOSE 80
+
+docker build -t digital-library:v1 .
+
+docker run -d -p 8090:80 --name library_service digital-library:v1
+
+docker exec -it library_service cat /usr/share/nginx/html/index.html
