@@ -6,6 +6,9 @@ docker rm my-wordpress-server         stop port
 
 
 
+docker cp /path/to/your/custom.html my-wordpress-server:/var/www/html/custom.html
+
+
 
 
 
